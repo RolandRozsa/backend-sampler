@@ -30,7 +30,7 @@
 			<artifactId>api-grpc-stub-gen</artifactId>
 		</dependency>
         
-        <!-- ez nalunk exclude org.apache.httpcomponents:httpclient-ben itt viszont kell -->
+        <!-- in our case, the org.apache.httpcomponents:httpclient is excluded, but here it is required -->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
