@@ -76,7 +76,7 @@
 				<configuration>
 					<protocArtifact>com.google.protobuf:protoc:${version.protoc.version}:exe:${os.detected.classifier}</protocArtifact>
 					<inputDirectories>
-						<!-- generalt + kezi proto, csak a sajat csomagjainkat kell generalni a generalt google tipusok benne vannak a dependencyben-->
+						<!-- generated + manual proto, we only need to generate our own packages, the generated google types are included in the dependency-->
 						<include>${project.build.directory}/proto-external/hu</include>
 					</inputDirectories>
 					<includeDirectories>

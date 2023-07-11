@@ -28,7 +28,7 @@
 			<groupId>hu.icellmobilsoft.coffee</groupId>
 			<artifactId>coffee-dto-xsd</artifactId>
 		</dependency>
-		<!-- schema2proto miatt pluszba be kellett emelni mert nem tudta feloldani a google importokat -->
+		<!-- Due to the schema2proto tool, it was necessary to include additional content because it couldn't resolve the Google imports -->
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
@@ -47,7 +47,7 @@
 			<resource>
 				<directory>${project.build.directory}/generated-sources</directory>
 				<excludes>
-					<!-- ez duplikalas lenne, coffee proto fajlok coffee-dto-xsd-proto csomagban vannak -->
+					<!-- This would be duplication as the coffee proto files are already in the coffee-dto-xsd-proto package -->
 					<exclude>hu/icellmobilsoft/coffee/**</exclude>
 				</excludes>
 			</resource>
@@ -69,7 +69,7 @@
 			</extension>
 		</extensions>
 		<plugins>
-			<!-- schema2proto generáláshoz szükséges XSD és proto dependenciák másolása classpath-ra -->
+			<!-- Copying XSD and proto dependencies to the classpath is necessary for schema2proto generation -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -90,7 +90,7 @@
 									<includes>**/*.xsd</includes>
 									<outputDirectory>${project.build.directory}</outputDirectory>
 								</artifactItem>
-								<!-- XSD kapcsolatoknak kell a coffee sema -->
+								<!-- The coffee schema is required for XSD connections -->
 								<artifactItem>
 									<groupId>hu.icellmobilsoft.coffee</groupId>
 									<artifactId>coffee-dto-xsd</artifactId>
@@ -129,8 +129,7 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<!--schema2proto generáláshoz szükséges configot átmásoljuk, hogy lehessen filterelni maven variable-hoz
-                 multi module buildhez kell, mert a fájlban lehetnek import hivatkozások-->
+				<!--We copy the configuration required for schema2proto generation so that it can be filtered by Maven variables. This is necessary for multi-module builds because the file may contain import references.-->
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
@@ -154,15 +153,15 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- maga az XSD -> proto konverter plugin -->
+			<!-- The XSD itself -> proto converter plugin -->
 			<plugin>
 				<groupId>no.entur</groupId>
 				<artifactId>schema2proto-maven-plugin</artifactId>
 				<version>${version.schema2proto-maven-plugin.version}</version>
 				<configuration>
-					<!--                     ez tartalmaz minden beállítást, részletes leírásokkal -->
+					<!--                     This contains all the configurations with detailed descriptions -->
 					<configFile>${project.build.directory}/etc/schema2proto/config.yaml</configFile>
-					<!--                     root xml/xsd amit konvertálni akarunk, szükséges mindenhova megadni a schemaLocation-t -->
+					<!--                     Root XML/XSD that we want to convert, it is necessary to specify the schemaLocation everywhere -->
 					<xsdFile>src/main/resources/xsd/hu/icellmobilsoft/sampler/common/superProto.xml</xsdFile>
 				</configuration>
 				<executions>

@@ -28,7 +28,7 @@
             </resource>
         </resources>
         <plugins>
-            <!-- a csomagnak tartalmaznia kell minden proto fajlt amit hasznal (kulsost is) -->
+            <!-- the package must contain all the proto files it uses (including external ones) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
