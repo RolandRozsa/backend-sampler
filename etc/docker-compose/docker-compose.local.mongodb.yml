@@ -1,12 +1,12 @@
 version: "3.8"
 
-# futtatas
+# execution
 # docker-compose -f <PROJECT_PATH>/backend-sampler/etc/docker-compose/docker-compose.local.mongodb.yml up --build --force-recreate
 #
-# belemaszas
+# start session
 # docker exec -it bs-sample-mongodb /bin/bash
 #
-# uresbe inditas
+# empty start
 # docker run --rm -it docker-compose_sample-mongodb /bin/bash
 services:
   sample-mongodb:

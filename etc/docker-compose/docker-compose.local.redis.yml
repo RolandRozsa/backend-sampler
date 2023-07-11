@@ -9,5 +9,5 @@ services:
 networks: 
   default: 
     external: 
-# hogyha hianyolja: docker network create bs-local-network
+# if required: docker network create bs-local-network
       name: bs-local-network

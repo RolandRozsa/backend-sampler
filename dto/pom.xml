@@ -31,12 +31,12 @@
     <build>
         <plugins>
             <plugin>
-<!-- eredeti plugin: ez nem tudja a jaxb3 vagy 4-et
+<!-- original plugin: this isnt compatible with jaxb3 or 4
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
                 <version>0.15.1</version>
 -->
-<!-- forkolt es releaselt plugin a felsobol kiindulva: ez csak a jaxb3-at tudja, 4-et nem de lagalabb jakarta csomagok vannak hasznalva -->
+<!-- forked and released plugin based on the above: this is only compatible with jaxb3, not with 4  but at least jakarta packages are used -->
                 <groupId>com.evolvedbinary.maven.jvnet</groupId>
                 <artifactId>jaxb30-maven-plugin</artifactId>
                 <version>0.15.0</version>
@@ -70,7 +70,7 @@
                     <verbose>true</verbose>
                     <schemaDirectory>src/main/resources</schemaDirectory>
                     <args>
-<!-- a pluginunk nem tud jaxb3+ dolgozni
+<!-- our plugin can't work with jaxb3+
                         <arguments>-openapify</arguments>
 -->
                         <arguments>-Xfluent-api</arguments>

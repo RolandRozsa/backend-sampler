@@ -21,14 +21,14 @@
 
 			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
 
-<!-- Hibernate v6 nem számol ezzel és hibát dob
+<!-- Hibernate v6 does not compute with this and throws an error
 			<property name="hibernate.id.new_generator_mappings" value="false" />
 -->
 			<property name="hibernate.jpa.compliance.proxy" value="false" />
 			<property name="hibernate.criteria.literal_handling_mode" value="BIND" />
 			<property name="hibernate.jdbc.time_zone" value="UTC" />
 
-			<!-- Csak H2-re! -->
+			<!-- Only for H2! -->
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 		</properties>
 	</persistence-unit>
