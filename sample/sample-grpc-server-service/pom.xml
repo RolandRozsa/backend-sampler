@@ -80,7 +80,7 @@
     <profiles>
         <profile>
             <id>openapi</id>
-            <!-- Openapi generalasa annotaciokbol. Release-nel van hasznalva -->
+            <!-- Openapi generation from annotations. Used in release -->
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
