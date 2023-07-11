@@ -59,11 +59,11 @@ public class Starter {
             // Try doing it the normal way
             URL.setURLStreamHandlerFactory(delegator);
         } catch (final Error e) {
-            // Force it via reflection (eleg durva hacking, de minden mas megoldas nem mukodik)
+            // Force it via reflection (it is quite rough hacking, but no other solution is working)
             try {
                 final Field factoryField = URL.class.getDeclaredField("factory");
                 factoryField.setAccessible(true);
-                // A már beállított (default) factory-t beállítjuk a delegatornak, hogy az is tudjon futni
+                // We set the already configured (default) factory to the delegator so that it can also run
                 URLStreamHandlerFactory factory = (URLStreamHandlerFactory) factoryField.get(null);
                 delegator.addUrlStreamHandlerFactory(factory);
                 factoryField.set(null, delegator);
